@@ -8,19 +8,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.toyProject.models.entity.Member;
-
 @RestController
 public class HttpControllerTest {
 	// http://localhost:3000/http/get
 	@GetMapping("http/get")
-	public String getTest(Member m) {
-		return "get 요청 : " + m.getId() + " | " + m.getPassword() + " | " + m.getUsername() + " | " + m.getEmail();
+	public String getTest() {
+		return "get 요청";
 	}
 	// http://localhost:3000/http/post
 	@PostMapping("http/post")
-	public String postTest(@RequestBody Member m) {
-		return "post 요청 : " + m.getId() + " | " + m.getPassword() + " | " + m.getUsername() + " | " + m.getEmail();
+	public String postTest() {
+		return "post 요청";
 	}
 	// http://localhost:3000/http/put
 	@PutMapping("http/put")
