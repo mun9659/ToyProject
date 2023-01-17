@@ -1,13 +1,18 @@
-package com.toyProject.models.entity;
+package com.toyProject.models.entity.user;
 
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.*;
@@ -17,6 +22,8 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
+@EntityListeners(AuditingEntityListener.class)
+// @DynamicInsert - Insert 시에 Null 값인 필드 제외
 public class User {
 	
 	@Id @GeneratedValue
@@ -31,8 +38,8 @@ public class User {
 	@Column(nullable=false, length=50)
 	private String email;
 	
-	@ColumnDefault("'user'")
-	private String role;
+	@Enumerated(EnumType.STRING)
+	private RoleType role;
 	
 	@CreatedDate
 	@Column(updatable=false)
