@@ -1,4 +1,4 @@
-package com.toyProject.controllers;
+package com.toyProject.controller;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

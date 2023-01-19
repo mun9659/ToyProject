@@ -1,12 +1,14 @@
-package com.toyProject.controllers.user;
+package com.toyProject.controller.user;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -77,5 +79,17 @@ public class UserController {
 		user.setEmail(requestUser.getEmail());
 		
 		// userRepository.save(user);
+	}
+	
+	@DeleteMapping("/user/{id}")
+	public String delete(@PathVariable Long id) {
+		
+		try {
+			userRepository.deleteById(id);
+		} catch (EmptyResultDataAccessException e) {
+			return "삭제에 실패하였습니다. 해당 id는 DB에 존재하지 않습니다.";
+		}
+		
+		return "삭제가 완료되었습니다. id : " + id;
 	}
 }
