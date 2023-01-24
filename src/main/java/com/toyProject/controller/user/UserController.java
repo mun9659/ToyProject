@@ -41,7 +41,7 @@ public class UserController {
 	@GetMapping("/user/loginForm")
 	public String login(Model model) {
 		
-		model.addAttribute("addScript", new String[] {"join"});
+		model.addAttribute("addScript", new String[] {"login"});
 		
 		return "user/loginForm";
 	}

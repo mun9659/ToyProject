@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<th:block th:replace="layouts/layout::main">
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{layouts/layout}">
+<th:block layout:fragment="content">
 <div class="container" style="margin-top:30px">
-  	<form action="/action_page.php">
+  	<form>
 	  <div class="form-group">
 	    <label for="username">Username:</label>
 	    <input type="text" class="form-control" placeholder="Enter email" id="username">
@@ -17,7 +18,7 @@
 	      <input class="form-check-input" type="checkbox"> Remember me
 	    </label>
 	  </div>
-	  <button type="submit" class="btn btn-primary">Login</button>
+	  <button id="loginBtn" type="button" class="btn btn-primary">Login</button>
 	</form>
 </div>
 </th:block>

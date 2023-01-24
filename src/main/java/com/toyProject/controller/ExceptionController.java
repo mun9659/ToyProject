@@ -12,7 +12,7 @@ public class ExceptionController {
 	
 	@ExceptionHandler(value=Exception.class)
 	public JsonResult<?> handleArgumentException(Exception e) {
-		return new JsonResult<>(false, "회원가입이 실패하였습니다.", null);
+		return new JsonResult<>(false, e.getMessage(), null);
 	}
 	
 }

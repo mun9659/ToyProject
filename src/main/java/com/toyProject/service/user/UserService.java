@@ -1,5 +1,7 @@
 package com.toyProject.service.user;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +21,7 @@ public class UserService {
 		userRepository.save(user);
 	}
 	
+	public Optional<User> login(User user) {
+		return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+	}
 }
