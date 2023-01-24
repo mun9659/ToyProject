@@ -29,7 +29,7 @@ public class User {
 	@Id @GeneratedValue
 	private Long id;
 	
-	@Column(nullable=false, length=30)
+	@Column(nullable=false, length=30, unique=true)
 	private String username;
 	
 	@Column(nullable=false, length=100)
