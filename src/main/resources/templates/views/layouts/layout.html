@@ -5,10 +5,10 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 </head>
 <body>
-<header th:replace="layouts/header::header"></header>
+<header th:replace="~{layouts/header::header}"></header>
 <th:block layout:fragment="content"></th:block>
 <br>
-<footer th:replace="layouts/footer::footer"></footer>
+<footer th:replace="~{layouts/footer::footer}"></footer>
 </body>
 <script th:each="script : ${addScript}" th:src="@{/js/{js}.js(js=${script})}"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>

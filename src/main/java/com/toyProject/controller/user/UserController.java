@@ -30,7 +30,7 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@GetMapping("/user/joinForm")
+	@GetMapping("/auth/joinForm")
 	public String join(Model model) {
 		
 		model.addAttribute("addScript", new String[] {"join"});
@@ -38,10 +38,10 @@ public class UserController {
 		return "user/joinForm";
 	}
 	
-	@GetMapping("/user/loginForm")
+	@GetMapping("/auth/loginForm")
 	public String login(Model model) {
 		
-		model.addAttribute("addScript", new String[] {"login"});
+		// model.addAttribute("addScript", new String[] {"login"});
 		
 		return "user/loginForm";
 	}

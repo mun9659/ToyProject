@@ -18,7 +18,7 @@ public class UserApiController {
 	@Autowired
 	UserService userService;
 	
-	@PostMapping("/api/join")
+	@PostMapping("/auth/join")
 	public JsonResult<?> join(@RequestBody User user) {
 		System.out.println("UserApiController 발동 : join 함수 작동");
 		user.setRole(RoleType.USER);
@@ -26,6 +26,7 @@ public class UserApiController {
 		return new JsonResult<>(true, "정상적으로 추가되었습니다.", null);
 	}
 	
+	/*
 	@PostMapping("/api/login")
 	public JsonResult<?> login(@RequestBody User user, HttpSession session) {
 		System.out.println("UserApiController 발동 : login 함수 작동");
@@ -37,5 +38,5 @@ public class UserApiController {
 		
 		return new JsonResult<>(true, "로그인이 완료되었습니다.", null);
 	}
-	
+	*/
 }
